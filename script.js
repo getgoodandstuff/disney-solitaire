@@ -477,7 +477,7 @@ function startEnd(e) {
             winsAmount++;
             localStorage.setItem("wins", winsAmount);
             if (winsAmount == 1)
-                winMessageEl.innerHTML = `You have won ${winsAmount} times!`;
+                winMessageEl.innerHTML = `You have won ${winsAmount} time!`;
             else
                 winMessageEl.innerHTML = `You have won ${winsAmount} times!`;
             document.querySelector("#winContainer").style.display = "flex";

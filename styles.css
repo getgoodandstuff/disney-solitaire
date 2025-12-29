@@ -6,7 +6,7 @@ body {
 
 #restartButton {
     position: absolute;
-    bottom: 13px;
+    bottom: 18px;
     right: 10px;
     height: 40px;
     width: 40px;
@@ -18,7 +18,7 @@ body {
 
 #restartModal {
     display: none;
-    z-index: 100;
+    z-index: 200;
     position: absolute;
     top: 0;
     left: 0;
@@ -86,7 +86,7 @@ body {
     align-items: center;
     top: calc(50% - 225px);
     left: calc(50% - 150px);
-    z-index: 1000;
+    z-index: 100;
     width: 300px;
     height: 450px;
     background-color: #b0d6fa;
