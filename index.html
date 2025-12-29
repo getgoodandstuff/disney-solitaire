@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disney Solitaire</title>
+    <link rel="shortcut icon" href="Cards/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <button id="restartButton">↺</button>
+    <div id="restartModal">
+        <h2>Are you sure you want to restart?</h2>
+        <div id="restartActionButtons">
+            <button id="confirmRestart">Yes</button>
+            <button id="denyRestart">No</button>
+        </div>
+    </div>
+    <div id="topStackContainer">
+        <div class="topStack" id="drawDeck"></div>
+        <div class="topStack" id="drawPlace"></div>
+        <div class="topStack" id="seperator"></div>
+        <div class="topStack" id="topStack1"></div>
+        <div class="topStack" id="topStack2"></div>
+        <div class="topStack" id="topStack3"></div>
+        <div class="topStack" id="topStack4"></div>
+    </div>
+    <div id="gameContainer">
+        <div class="slot" id="slot1"></div>
+        <div class="slot" id="slot2"></div>
+        <div class="slot" id="slot3"></div>
+        <div class="slot" id="slot4"></div>
+        <div class="slot" id="slot5"></div>
+        <div class="slot" id="slot6"></div>
+        <div class="slot" id="slot7"></div>
+    </div>
+    <div id="winContainer">
+        <h2>YOU WIN!!</h2>
+        <h3 id="winMessage">You have won _ times!</h3>
+    </div>
+    <div id="animationLayer"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

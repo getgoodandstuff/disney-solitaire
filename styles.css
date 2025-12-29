@@ -1,0 +1,504 @@
+body {
+    margin: 0px;
+    margin-top: 10px;
+    background-color: #dbebfb;
+}
+
+#restartButton {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    height: 40px;
+    width: 40px;
+    font-size: 25px;
+    border-radius: 4px;
+    background-color: #b0d6fa;
+    border: 3px solid #90C6FA;
+}
+
+#restartModal {
+    display: none;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* display: flex; */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: #b0d6fa;
+}
+
+#restartActionButtons>button {
+    margin: 30px;
+    height: 40px;
+    width: 80px;
+    font-size: 20px;
+    border-radius: 4px;
+    border: 1px solid #000000;
+
+}
+
+#confirmRestart {
+    background-color: rgb(43, 207, 43);
+}
+
+#denyRestart {
+    background-color: rgb(207, 43, 43);
+}
+
+/* F5E5DD */
+.topStack,
+.slot {
+    border-radius: 4px;
+    outline: 3px solid #90C6FA;
+    outline-offset: -3px;
+    margin: 3px;
+}
+
+
+@media (max-width: 2500px) {
+
+    /* 900 */
+    .topStack,
+    .slot {
+        width: 45px;
+        height: 63px;
+    }
+}
+
+/* @media (max-width: 440px) {
+    #restartButton {
+        top: auto;
+        bottom: 5px;
+    } 
+}*/
+
+#winContainer {
+    display: none;
+    position: absolute;
+    /* display: flex; */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top: calc(50% - 225px);
+    left: calc(50% - 150px);
+    z-index: 1000;
+    width: 300px;
+    height: 450px;
+    background-color: #b0d6fa;
+    border-radius: 10px;
+    border: 5px solid #90C6FA;
+}
+
+#seperator {
+    outline: none;
+}
+
+#topStackContainer,
+#gameContainer {
+    min-width: 371px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+#topStackContainer {
+    margin-bottom: 20px;
+}
+
+.card {
+    aspect-ratio: 2.5/3.5;
+    width: 45px;
+    border-radius: 4px;
+    position: absolute;
+    border: .5px solid black;
+    z-index: 0;
+}
+
+.red {
+    background-color: rgb(228, 196, 255);
+}
+
+.black {
+    background-color: black;
+}
+
+#resetCard {
+    background-image: url("Cards/reflip.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.cardBack {
+    background-color: gainsboro;
+    background-image: url("Cards/back.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@keyframes flyToCenter {
+    from {
+        transform: translate3d(0px, 0px, 0px);
+    }
+
+    to {
+        transform: translate3d(var(--dx, 0px), var(--dy, 0px), 0px);
+    }
+}
+
+.flyToCenter {
+    animation: flyToCenter 1.5s ease-in-out forwards;
+    animation-delay: var(--fly-delay, 0ms);
+    will-change: transform;
+}
+
+/* @keyframes shuffle {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-50%, -50%) translate(-80px, 0) rotate(-10deg);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translate(80px, 0) rotate(10deg);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) translate(0, 0) rotate(0deg);
+        z-index: 5;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translate(0, 0) rotate(0deg);
+    }
+} */
+
+@keyframes shuffle {
+    0% {
+        transform: translate3d(0px, 0px, 0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate3d(-80px, 0px, 0px) rotate(-10deg);
+    }
+
+    50% {
+        transform: translate3d(80px, 0px, 0px) rotate(10deg);
+    }
+
+    75% {
+        transform: translate3d(0px, 0px, 0px) rotate(0deg);
+        z-index: 5;
+    }
+
+    100% {
+        transform: translate3d(0px, 0px, 0px) rotate(0deg);
+    }
+}
+
+.shuffle {
+    animation: shuffle 1.5s ease-in-out forwards;
+}
+
+/* Improve compositing to avoid trailing artifacts */
+.card {
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+
+/* Individual background-image assignments */
+/*
+#c1donald {
+    background-image: url("Cards/adonald.png");
+    background-color: pink;
+
+}
+
+#c2donald {
+    background-image: url("Cards/2donald.png");
+    background-color: pink;
+
+}
+
+#c3donald {
+    background-image: url("Cards/3donald.png");
+    background-color: pink;
+
+}
+
+#c4donald {
+    background-image: url("Cards/4donald.png");
+    background-color: pink;
+
+}
+
+#c5donald {
+    background-image: url("Cards/5donald.png");
+    background-color: pink;
+}
+
+#c6donald {
+    background-image: url("Cards/6donald.png");
+    background-color: pink;
+
+}
+
+#c7donald {
+    background-image: url("Cards/7donald.png");
+    background-color: pink;
+
+}
+
+#c8donald {
+    background-image: url("Cards/8donald.png");
+    background-color: pink;
+
+}
+
+#c9donald {
+    background-image: url("Cards/9donald.png");
+    background-color: pink;
+
+}
+
+#c10donald {
+    background-image: url("Cards/10donald.png");
+    background-color: pink;
+
+}
+
+#c11donald {
+    background-image: url("Cards/jdonald.png");
+}
+
+#c12donald {
+    background-image: url("Cards/qdonald.png");
+}
+
+#c13donald {
+    background-image: url("Cards/kdonald.png");
+}
+
+#c1daisy {
+    background-image: url("Cards/adaisy.png");
+}
+
+#c2daisy {
+    background-image: url("Cards/2daisy.png");
+}
+
+#c3daisy {
+    background-image: url("Cards/3daisy.png");
+}
+
+#c4daisy {
+    background-image: url("Cards/4daisy.png");
+}
+
+#c5daisy {
+    background-image: url("Cards/5daisy.png");
+}
+
+#c6daisy {
+    background-image: url("Cards/6daisy.png");
+}
+
+#c7daisy {
+    background-image: url("Cards/7daisy.png");
+}
+
+#c8daisy {
+    background-image: url("Cards/8daisy.png");
+}
+
+#c9daisy {
+    background-image: url("Cards/9daisy.png");
+}
+
+#c10daisy {
+    background-image: url("Cards/10daisy.png");
+}
+
+#c11daisy {
+    background-image: url("Cards/jdaisy.png");
+}
+
+#c12daisy {
+    background-image: url("Cards/qdaisy.png");
+}
+
+#c13daisy {
+    background-image: url("Cards/kdaisy.png");
+}
+
+#c1mickey {
+    background-image: url("Cards/amickey.png");
+}
+
+#c2mickey {
+    background-image: url("Cards/2mickey.png");
+}
+
+#c3mickey {
+    background-image: url("Cards/3mickey.png");
+}
+
+#c4mickey {
+    background-image: url("Cards/4mickey.png");
+}
+
+#c5mickey {
+    background-image: url("Cards/5mickey.png");
+}
+
+#c6mickey {
+    background-image: url("Cards/6mickey.png");
+}
+
+#c7mickey {
+    background-image: url("Cards/7mickey.png");
+}
+
+#c8mickey {
+    background-image: url("Cards/8mickey.png");
+}
+
+#c9mickey {
+    background-image: url("Cards/9mickey.png");
+}
+
+#c10mickey {
+    background-image: url("Cards/10mickey.png");
+}
+
+#c11mickey {
+    background-image: url("Cards/jmickey.png");
+}
+
+#c12mickey {
+    background-image: url("Cards/qmickey.png");
+}
+
+#c13mickey {
+    background-image: url("Cards/kmickey.png");
+}
+
+#c1minnie {
+    background-image: url("Cards/aminnie.png");
+}
+
+#c2minnie {
+    background-image: url("Cards/2minnie.png");
+}
+
+#c3minnie {
+    background-image: url("Cards/3minnie.png");
+}
+
+#c4minnie {
+    background-image: url("Cards/4minnie.png");
+}
+
+#c5minnie {
+    background-image: url("Cards/5minnie.png");
+}
+
+#c6minnie {
+    background-image: url("Cards/6minnie.png");
+}
+
+#c7minnie {
+    background-image: url("Cards/7minnie.png");
+}
+
+#c8minnie {
+    background-image: url("Cards/8minnie.png");
+}
+
+#c9minnie {
+    background-image: url("Cards/9minnie.png");
+}
+
+#c10minnie {
+    background-image: url("Cards/10minnie.png");
+}
+
+#c11minnie {
+    background-image: url("Cards/jminnie.png");
+}
+
+#c12minnie {
+    background-image: url("Cards/qminnie.png");
+}
+
+#c13minnie {
+    background-image: url("Cards/kminnie.png");
+}
+*/
+/* CSS for IDs from 1 to 13 for each character */
+#c1donald,
+#c2donald,
+#c3donald,
+#c4donald,
+#c5donald,
+#c6donald,
+#c7donald,
+#c8donald,
+#c9donald,
+#c10donald,
+#c11donald,
+#c12donald,
+#c13donald,
+#c1daisy,
+#c2daisy,
+#c3daisy,
+#c4daisy,
+#c5daisy,
+#c6daisy,
+#c7daisy,
+#c8daisy,
+#c9daisy,
+#c10daisy,
+#c11daisy,
+#c12daisy,
+#c13daisy,
+#c1mickey,
+#c2mickey,
+#c3mickey,
+#c4mickey,
+#c5mickey,
+#c6mickey,
+#c7mickey,
+#c8mickey,
+#c9mickey,
+#c10mickey,
+#c11mickey,
+#c12mickey,
+#c13mickey,
+#c1minnie,
+#c2minnie,
+#c3minnie,
+#c4minnie,
+#c5minnie,
+#c6minnie,
+#c7minnie,
+#c8minnie,
+#c9minnie,
+#c10minnie,
+#c11minnie,
+#c12minnie,
+#c13minnie {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
