@@ -113,10 +113,16 @@ body {
 .card {
     aspect-ratio: 2.5/3.5;
     width: 45px;
+    height: 63px;
     border-radius: 4px;
     position: absolute;
     border: .5px solid black;
     z-index: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    touch-action: none;
+    will-change: transform;
 }
 
 .red {

@@ -11,6 +11,8 @@ const NUMBERS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", 
 const SUITS = ["minnie", "mickey", "daisy", "donald"];
 const layer = document.querySelector('#animationLayer');
 
+// MIGHT NEED TO PREVENT SIZE RECALCULATION WHILE DRAGGING
+
 //reset elements
 const restartButtonEl = document.querySelector("#restartButton");
 const restartScreenEl = document.querySelector("#restartModal");
